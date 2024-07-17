@@ -179,3 +179,5 @@ export const locIcon3 = styled.img`
   margin-left: 20px;
   margin-top: 153px;
 `;
+
+
