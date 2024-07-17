@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import map from "../../assets/img/map.png";
-import banner from "../../assets/img/banner.png";
+import banner from "../../assets/img/mainbanner.svg";
 import car from "../../assets/img/car.png";
 import arrow from "../../assets/img/arrow.png";
 import locIcon from "../../assets/img/locIcon.png";
