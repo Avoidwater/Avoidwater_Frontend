@@ -35,6 +35,7 @@ export const banner = styled.img`
   position: absolute;
   margin-left: 185px;
   margin-top: 590px;
+  cursor: pointer;
 `;
 
 export const subcarDiv = styled.div`

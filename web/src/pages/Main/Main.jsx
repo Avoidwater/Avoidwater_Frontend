@@ -8,6 +8,8 @@ import { Map } from "react-kakao-maps-sdk";
 import * as M from "../../style/Main/Main";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { useNavigate } from "react-router-dom";
+
 
 function Main() {
   const [state, setState] = useState({
@@ -39,6 +41,13 @@ function Main() {
     geocoder.addressSearch(`${searchAddress}`, callback);
   };
 
+  const navigate = useNavigate();
+
+  const handleBannerClick = () => {
+    window.location.href = 'https://direct.samsungfire.com/claim/PP040403_001.html';
+  };
+
+
   return (
     <>
       <Header />
@@ -63,9 +72,7 @@ function Main() {
 
       <M.banner
         src={banner}
-        OnClick="location.href ='https://direct.samsungfire.com/claim/PP040403_001.html'"
-        style={{ cursor: "pointer" }}
-      />
+        onClick={handleBannerClick}      />
       <M.guideButton>지역별 강수량</M.guideButton>
       <M.nearShelter>
         <M.shelterGuide>주변 대피소 위치 안내</M.shelterGuide>
@@ -86,7 +93,7 @@ function Main() {
         <M.subcarCon>침수차 확인</M.subcarCon>
         <M.carIcon src={car}></M.carIcon>
         <M.discarGuide>침수차량 구별법 확인하러 가기</M.discarGuide>
-        <M.arrow src={arrow}></M.arrow>
+        <M.arrow src={arrow} onClick={() => navigate("/dmgpreguide")}></M.arrow>
       </M.subcarDiv>
     </>
   );
