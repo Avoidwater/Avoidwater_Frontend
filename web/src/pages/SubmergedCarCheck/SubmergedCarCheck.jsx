@@ -7,7 +7,11 @@ const SubmergedCar = () => {
     <React.Fragment>
       <Header />
       <M.TitleTxt>침수 차량 확인</M.TitleTxt>
+<<<<<<< Updated upstream
 
+=======
+      
+>>>>>>> Stashed changes
       <M.Jre1Title>내부점검</M.Jre1Title>
       <M.Jre1Text>
         침수된 차량의 경우에는 습기와 물 냄새가 강하게 날 수 있습니다. 특히
