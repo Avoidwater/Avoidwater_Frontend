@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import map from "../../assets/img/map.png";
-import banner from "../../assets/img/banner.png";
+import banner from "../../assets/img/mainbanner.svg";
 import car from "../../assets/img/car.png";
 import arrow from "../../assets/img/arrow.png";
 import locIcon from "../../assets/img/locIcon.png";
@@ -82,7 +82,7 @@ function Main() {
         <M.subcarCon>침수차 확인</M.subcarCon>
         <M.carIcon src={car}></M.carIcon>
         <M.discarGuide>침수차량 구별법 확인하러 가기</M.discarGuide>
-        <M.arrow src={arrow} onClick={() => navigate("/dmgpreguide")}></M.arrow>
+        <M.arrow src={arrow} onClick={() => navigate("/submergedcar")}></M.arrow>
       </M.subcarDiv>
     </>
   );

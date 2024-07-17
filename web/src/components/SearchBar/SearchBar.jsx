@@ -10,6 +10,7 @@ const SearchBar = ({ setData }) => {
   const handleGetLocationAndSubmit = async () => {
     try {
       const locationData = await axios.get(
+
         `https://dapi.kakao.com/v2/local/search/address.json?query=${addressText}`,
         {
           headers: {

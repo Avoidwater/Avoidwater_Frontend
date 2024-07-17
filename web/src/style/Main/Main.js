@@ -36,6 +36,7 @@ export const banner = styled.img`
   margin-left: 185px;
   margin-top: 590px;
   cursor: pointer;
+  padding-bottom: 80px;
 `;
 
 export const subcarDiv = styled.div`
@@ -105,6 +106,7 @@ export const arrow = styled.img`
   position: absolute;
   margin-left: 380px;
   margin-top: 45px;
+  cursor: pointer;
 `;
 
 export const shelterGuide = styled.div`

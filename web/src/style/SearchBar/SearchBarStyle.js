@@ -5,7 +5,7 @@ export const SearchBarContainer = styled.div`
   position: relative;
   width: 350px;
   margin-left: auto;
-  margin-right: 90px;
+  margin-right: 98px;
 `;
 
 export const SearchBar = styled.input`

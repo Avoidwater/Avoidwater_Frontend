@@ -11,6 +11,7 @@ export const TitleTxt = styled.div`
   color: #464646;
   padding: 90px;
   margin-top: 20px;
+  
 `;
 
 export const Pre1Container = styled.div`
