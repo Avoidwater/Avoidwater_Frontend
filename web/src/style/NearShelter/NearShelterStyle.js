@@ -8,15 +8,6 @@ export const TitleTxt = styled.div`
   margin-top: 10px;
 `;
 
-export const Table = styled.img.attrs({
-  src: TableSrc,
-  alt: "Table",
-})`
-  display: flex;
-  margin: auto;
-  width: 1320px;
-`;
-
 export const GlobalStyle = createGlobalStyle`
   table {
     width: 90%;
@@ -24,6 +15,23 @@ export const GlobalStyle = createGlobalStyle`
     margin: auto;
     margin-top: 20px;
     margin-bottom: 100px;
+    table-layout: fixed;
+  }
+
+  table th:nth-child(1){
+    width: 20%;
+  }
+
+  table th:nth-child(2){
+    width: 50%;
+  }
+
+  table th:nth-child(3){
+    width: 10%;
+  }
+
+  table th:nth-child(4){
+    width: 10%;
   }
 
   th, td {

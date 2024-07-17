@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as M from "../../style/NearShelter/NearShelterStyle";
 import Header from "../../components/Header/Header";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import AreaSearchBar from "../../components/SearchBar/AreaSearchBar";
 import axios from "axios";
 
 const NearShelter = () => {
@@ -53,7 +53,7 @@ const NearShelter = () => {
     <React.Fragment>
       <Header />
       <M.TitleTxt>주변 대피소 위치 안내</M.TitleTxt>
-      <SearchBar onSearch={handleSearch} />
+      <AreaSearchBar onSearch={handleSearch} />
       <M.GlobalStyle />
       <div>
         <table>
