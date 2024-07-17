@@ -46,6 +46,7 @@ const SubmergedCar = () => {
           단서가 되기 때문입니다.
         </M.Jre4Text>
       </M.Jre4Container>
+      <M.checkList>침수차량 구별 체크리스트</M.checkList>
       <M.JreList>
         <blockquote>
             <ol>

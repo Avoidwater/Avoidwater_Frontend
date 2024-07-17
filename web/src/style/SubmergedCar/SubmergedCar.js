@@ -5,6 +5,7 @@ export const TitleTxt = styled.div`
   color: #464646;
   padding: 90px;
   margin-top: 20px;
+  margin-left: 50px;
 `;
 export const Jre1Container = styled.div`
   padding: 50px;
@@ -88,9 +89,18 @@ export const JreListContainer = styled.div`
   margin-top: -180px;
 `;
 export const JreList = styled.div`
-  padding: 120px;
-  margin-top: -180px;
+  padding: 80px;
   color: #000000;
   font-size: 24px;
   line-height: 47.5px;
+`;
+
+export const checkList = styled.div`
+  font-size: 24px;
+  color: #4567e3;
+  padding: 90px;
+  font-weight: bold;
+  position: absolute;
+  margin-left: 40px;
+  margin-top: -40px;
 `;
