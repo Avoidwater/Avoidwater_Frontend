@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as M from "../../style/NearShelter/NearShelterStyle";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import axios from 'axios';
 
 const NearShelter = () => {
   const [shelters, setShelters] = useState([]);
@@ -10,14 +11,23 @@ const NearShelter = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://apis.data.go.kr/1741000/TsunamiShelter4/getTsunamiShelter4List"
+        const response = await axios.get(
+          "https://apis.data.go.kr/1741000/TsunamiShelter4/getTsunamiShelter4List",
+          {
+            params: {
+              ServiceKey: 'MLdNypvYyRkSnXR6+YQlNfn6kEXvNTIsVPfFJF0inq59YNe/9P6B+VgJgQuLUa/uZiRQjhcCfOf6OBWx3wu1nA==',
+              type: 'json',
+              pageNo: '1',
+              numOfRows: '10'
+            }
+          }
         );
-        if (!response.ok) {
-          throw new Error("네트워크 응답이 좋지 않음");
+        
+        if (response.data.response && response.data.response.body) {
+          setShelters(response.data.response.body.items.item || []);
+        } else {
+          setShelters([]);
         }
-        const jsonData = await response.json();
-        setShelters(jsonData.row ? [jsonData.row] : []);
         setLoading(false);
       } catch (error) {
         console.error("데이터 가져오는 중 오류 발생", error);
@@ -37,25 +47,17 @@ const NearShelter = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <h2></h2>
-          <M.Table />
-          <ul>
-            {shelters.map((shelter) => (
-              <li key={shelter.id}>
-                <p>이름: {shelter.shel_nm}</p>
-                <p>주소: {shelter.address}</p>
-                <p>전화번호: {shelter.tel}</p>
-              </li>
-            ))}
-          </ul>
-          <table>
-            {/* <thead>
+          <M.Table>
+            <thead>
               <tr>
                 <th>이름</th>
                 <th>주소</th>
                 <th>전화번호</th>
+                <th>시도명</th>
+                <th>시군구명</th>
+                <th>비고</th>
               </tr>
-            </thead> */}
+            </thead>
             <tbody>
               {shelters.map((shelter) => (
                 <tr key={shelter.id}>
@@ -68,7 +70,7 @@ const NearShelter = () => {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </M.Table>
         </div>
       )}
     </React.Fragment>
