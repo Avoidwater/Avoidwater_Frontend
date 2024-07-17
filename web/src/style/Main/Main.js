@@ -14,6 +14,15 @@ body {
 }
 `;
 
+export const searchDiv = styled.div`
+  width: 350px;
+  height: 50px;
+  position: absolute;
+  margin-left: 445px;
+  margin-top: 90px;
+  z-index: 2;
+`;
+
 export const map = styled.img`
   position: absolute;
   width: 625px;
@@ -26,6 +35,7 @@ export const banner = styled.img`
   position: absolute;
   margin-left: 185px;
   margin-top: 590px;
+  cursor: pointer;
 `;
 
 export const subcarDiv = styled.div`
@@ -35,6 +45,25 @@ export const subcarDiv = styled.div`
   border: 1px #d2d2d2 solid;
   margin-left: 835px;
   margin-top: 382px;
+`;
+
+export const guideButton = styled.div`
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+  color: #6f6f6f;
+  font-size: 20px;
+  font-family: Pretendard;
+  font-weight: 500;
+  padding-left: 22.5px;
+  padding-top: 12.5px;
+  margin-left: 200px;
+  margin-top: 90px;
+  z-index: 2;
 `;
 
 export const nearShelter = styled.div`

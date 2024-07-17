@@ -16,6 +16,7 @@ const NearShelter = () => {
           "https://apis.data.go.kr/1741000/TsunamiShelter4/getTsunamiShelter4List",
           {
             params: {
+
               ServiceKey:
                 "MLdNypvYyRkSnXR6+YQlNfn6kEXvNTIsVPfFJF0inq59YNe/9P6B+VgJgQuLUa/uZiRQjhcCfOf6OBWx3wu1nA==",
               type: "json",
