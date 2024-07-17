@@ -7,10 +7,12 @@ import locIcon from "../../assets/img/locIcon.png";
 import { Map } from "react-kakao-maps-sdk";
 import * as M from "../../style/Main/Main";
 import Header from "../../components/Header/Header";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 function Main() {
   const [state, setState] = useState({
-    center: { lat: 35.6632508239323, lng: 128.413618885714 },
+    center: { lat: 35.8714354, lng: 128.601445 },
+    level: 11,
   });
   const [searchAddress, setSearchAddress] = useState("");
 
@@ -40,20 +42,31 @@ function Main() {
   return (
     <>
       <Header />
+      <M.searchDiv>
+        <SearchBar />
+      </M.searchDiv>
       <M.GlobalStyle />
+
       <Map
         center={state.center}
+        level={state.level}
         style={{
           width: "625px",
           height: "500px",
           position: "absolute",
           border: "1px solid #D2D2D2",
           marginLeft: "185px",
-          marginTop: "72px"
+          marginTop: "72px",
+        }}>
+            
+        </Map>
 
-        }}></Map>
-
-      <M.banner src={banner} />
+      <M.banner
+        src={banner}
+        OnClick="location.href ='https://direct.samsungfire.com/claim/PP040403_001.html'"
+        style={{ cursor: "pointer" }}
+      />
+      <M.guideButton>지역별 강수량</M.guideButton>
       <M.nearShelter>
         <M.shelterGuide>주변 대피소 위치 안내</M.shelterGuide>
         <M.line />

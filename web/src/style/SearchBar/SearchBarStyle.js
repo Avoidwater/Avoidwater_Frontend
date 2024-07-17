@@ -22,9 +22,10 @@ export const MagnifyImg = styled.img.attrs({
   alt: "MagnifyIcon",
 })`
   position: absolute;
-  right: 0;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+
 `;
