@@ -12,6 +12,7 @@ const DmgPreGuide = () => {
         <M.Pre1Txt>침수된 도로, 지하차도, 급류 하천에서는</M.Pre1Txt>
         <M.Pre1TxtBold>절대 진입하지 말고 우회하세요!</M.Pre1TxtBold>
       </M.Pre1Container>
+
       <M.Pre2Container>
         <M.PreImg2 />
         <M.TextContainer>
@@ -26,6 +27,7 @@ const DmgPreGuide = () => {
           </M.Pre2TxtReg>
         </M.TextContainer>
       </M.Pre2Container>
+
       <M.Pre3Container>
         <M.PreImg3 />
         <M.TextContainer>
@@ -40,6 +42,7 @@ const DmgPreGuide = () => {
           </M.Pre3TxtReg>
         </M.TextContainer>
       </M.Pre3Container>
+
       <M.Pre4Container>
         <M.PreImg4 />
         <M.TextContainer>
@@ -54,6 +57,7 @@ const DmgPreGuide = () => {
           </M.Pre4TxtReg>
         </M.TextContainer>
       </M.Pre4Container>
+
       <M.Pre5Container>
         <M.PreImg5 />
         <M.TextContainer>
@@ -70,6 +74,7 @@ const DmgPreGuide = () => {
           </M.Pre5TxtReg>
         </M.TextContainer>
       </M.Pre5Container>
+      
       <M.Pre6Container>
         <M.PreImg6 />
         <M.Pre6Txt>급류에 차량 고립 시</M.Pre6Txt>
