@@ -4,56 +4,40 @@ import banner from "../../assets/img/banner.png";
 import car from "../../assets/img/car.png";
 import arrow from "../../assets/img/arrow.png";
 import locIcon from "../../assets/img/locIcon.png";
-import { Map } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import * as M from "../../style/Main/Main";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import CONFIG from "../../config/config.json";
 
 function Main() {
   const [state, setState] = useState({
     center: { lat: 35.8714354, lng: 128.601445 },
     level: 11,
   });
-  const [searchAddress, setSearchAddress] = useState("");
 
-  useEffect(() => {
-    if (window.kakao && window.kakao.maps) {
-      SearchMap();
-    }
-  }, [searchAddress]);
-
-  const SearchMap = () => {
-    if (!window.kakao || !window.kakao.maps) {
-      console.error("Kakao Maps API is not loaded");
-      return;
-    }
-    const geocoder = new window.kakao.maps.services.Geocoder();
-    let callback = function (result, status) {
-      if (status === window.kakao.maps.services.Status.OK) {
-        const newSearch = result[0];
-        setState({
-          center: { lat: newSearch.y, lng: newSearch.x },
-        });
-      }
-    };
-    geocoder.addressSearch(`${searchAddress}`, callback);
-  };
+  const [data, setData] = useState();
 
   const navigate = useNavigate();
 
   const handleBannerClick = () => {
-    window.location.href = 'https://direct.samsungfire.com/claim/PP040403_001.html';
+    window.location.href =
+      "https://direct.samsungfire.com/claim/PP040403_001.html";
   };
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <>
       <Header />
       <M.searchDiv>
-        <SearchBar />
+        <SearchBar setData={setData} />
       </M.searchDiv>
+
       <M.GlobalStyle />
 
       <Map
@@ -67,12 +51,17 @@ function Main() {
           marginLeft: "185px",
           marginTop: "72px",
         }}>
-            
-        </Map>
+        {data && (
+          <MapMarker
+            position={{ lat: data.location.lat, lng: data.location.lon }}
+            onClick={() => {
+              console.log(data.location.name); // Handle marker click event
+            }}
+          />
+        )}
+      </Map>
 
-      <M.banner
-        src={banner}
-        onClick={handleBannerClick}      />
+      <M.banner src={banner} onClick={handleBannerClick} />
       <M.guideButton>지역별 강수량</M.guideButton>
       <M.nearShelter>
         <M.shelterGuide>주변 대피소 위치 안내</M.shelterGuide>

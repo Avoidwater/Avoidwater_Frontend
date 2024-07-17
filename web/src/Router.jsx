@@ -13,6 +13,7 @@ function AppRouter() {
         <Route path="/" element={<Header />} />
         <Route path="/main" element={<Main />} />
         <Route path="dmgpreguide" element={<DmgPreGuide />} />
+
       </Routes>
     </Router>
   );
