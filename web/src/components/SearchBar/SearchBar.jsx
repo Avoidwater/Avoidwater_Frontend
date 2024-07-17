@@ -10,6 +10,7 @@ const SearchBar = () => {
       // axios 사용해서 https://dapi.kakao.com/v2/local/search/address.json?query="${주소}"
       // + header에 Authorization: KakaoAK df6ab16c358d9b2ad054e8777badfcd6 담기
 
+     
       const { data } = await axios.get(
         `https://dapi.kakao.com/v2/local/search/address.json?query=${addressText}`,
         {
