@@ -57,7 +57,9 @@ function Main() {
           border: "1px solid #D2D2D2",
           marginLeft: "185px",
           marginTop: "72px",
-        }}></Map>
+        }}>
+            
+        </Map>
 
       <M.banner
         src={banner}
