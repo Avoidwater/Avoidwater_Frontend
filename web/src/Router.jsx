@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from '../src/components/Header/Header';
+import NearShelter from './pages/NearShelter/NearShelter';
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Header />} />
+        <Route path="/nearshelter" element={<NearShelter />} />
       </Routes>
     </Router>
   );
