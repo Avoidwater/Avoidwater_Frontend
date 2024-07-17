@@ -1,0 +1,42 @@
+import React from "react";
+import map from "../../assets/img/map.png";
+import banner from "../../assets/img/banner.png";
+import car from "../../assets/img/car.png";
+import arrow from "../../assets/img/arrow.png";
+import locIcon from "../../assets/img/locIcon.png"
+
+import * as M from "../../style/Main/Main";
+import Header from "../../components/Header/Header";
+
+function Main() {
+  return (
+    <>
+      <Header />
+      <M.GlobalStyle />
+      <M.map src={map} />
+      <M.banner src={banner} />
+      <M.nearShelter>
+        <M.shelterGuide>주변 대피소 위치 안내</M.shelterGuide>
+        <M.line />
+        <M.shelterDiv>
+          <M.data1>울산교육연수연 지진해일 긴급대피장소</M.data1>
+          <M.locIcon1 src={locIcon}/>
+          <M.semiData1>울산 북구 정자동</M.semiData1>
+          <M.locIcon2 src={locIcon}/>
+          <M.data2>망양정옛터 지진해일 긴급대피장소</M.data2>
+          <M.semiData2>울진 기성면</M.semiData2>
+          <M.data3>화진휴게소 입구 지진해일 긴급대피장소</M.data3>
+          <M.locIcon3 src={locIcon}/>
+          <M.semiData3>포항 북구 송라면</M.semiData3>
+        </M.shelterDiv>
+      </M.nearShelter>
+      <M.subcarDiv>
+        <M.subcarCon>침수차 확인</M.subcarCon>
+        <M.carIcon src={car}></M.carIcon>
+        <M.discarGuide>침수차량 구별법 확인하러 가기</M.discarGuide>
+        <M.arrow src={arrow}></M.arrow>
+      </M.subcarDiv>
+    </>
+  );
+}
+export default Main;
