@@ -1,4 +1,4 @@
-import * as M from "../../style/Header/HeaderStyle";
+import * as M from '../../style/Header/HeaderStyle';
 
 const Header = () => {
   return (
