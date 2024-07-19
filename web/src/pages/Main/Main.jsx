@@ -4,7 +4,7 @@ import banner from "../../assets/img/mainbanner.svg";
 import car from "../../assets/img/car.png";
 import arrow from "../../assets/img/arrow.png";
 import locIcon from "../../assets/img/locIcon.png";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map, MapMarker, Circle } from "react-kakao-maps-sdk";
 import * as M from "../../style/Main/Main";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -19,6 +19,7 @@ function Main() {
   });
 
   const [data, setData] = useState();
+  const [weatherData, setWeatherData] = useState();
 
   const navigate = useNavigate();
 
@@ -28,14 +29,46 @@ function Main() {
   };
 
   useEffect(() => {
-    console.log(data);
+    console.log("Location Data:", data);
   }, [data]);
+
+  useEffect(() => {
+    console.log("Weather Data:", weatherData);
+    if (weatherData) {
+      setState({
+        center: { lat: weatherData.location.lat, lng: weatherData.location.lon },
+        level: 9, // Adjusted zoom level
+      });
+    }
+  }, [weatherData]);
+
+  const getCircleOptions = (precipMm) => {
+    console.log("Precipitation (mm):", precipMm);
+    let radius = Math.max(precipMm * 1000, 5000); // Minimum radius of 5km
+    let color = '#75B8FA';
+
+    if (precipMm > 10) {
+      color = '#FF0000';
+    } else if (precipMm > 5) {
+      color = '#FFA500';
+    }
+
+    return {
+      radius: radius,
+      strokeWeight: 5,
+      strokeColor: color,
+      strokeOpacity: 0.7,
+      strokeStyle: 'solid',
+      fillColor: color,
+      fillOpacity: 0.3,
+    };
+  };
 
   return (
     <>
       <Header />
       <M.searchDiv>
-        <SearchBar setData={setData} />
+        <SearchBar setData={setData} setWeatherData={setWeatherData} />
       </M.searchDiv>
 
       <M.GlobalStyle />
@@ -50,15 +83,36 @@ function Main() {
           border: "1px solid #D2D2D2",
           marginLeft: "185px",
           marginTop: "72px",
-        }}>
+        }}
+        onLoad={() => console.log("Map loaded")}
+      >
         {data && (
           <MapMarker
             position={{ lat: data.location.lat, lng: data.location.lon }}
             onClick={() => {
-              console.log(data.location.name); // Handle marker click event
+              console.log(data.location.name);
             }}
           />
         )}
+        {weatherData && (
+          <Circle
+            center={{
+              lat: weatherData.location.lat,
+              lng: weatherData.location.lon,
+            }}
+            {...getCircleOptions(weatherData.current.precip_mm)}
+          />
+        )}
+        <Circle
+          center={state.center}
+          radius={50000}
+          strokeWeight={5}
+          strokeColor="#75B8FA"
+          strokeOpacity={0.7}
+          strokeStyle="solid"
+          fillColor="#CFE7FF"
+          fillOpacity={0.3}
+        />
       </Map>
 
       <M.banner src={banner} onClick={handleBannerClick} />
