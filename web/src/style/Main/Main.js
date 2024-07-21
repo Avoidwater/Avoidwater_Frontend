@@ -31,6 +31,15 @@ export const map = styled.img`
   margin-top: 72px;
 `;
 
+export const seeAll = styled.div`
+  position: absolute;
+  font-family: pretendard-medium;
+  margin-left: 355px;
+  margin-top: 40px;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 export const banner = styled.img`
   position: absolute;
   margin-left: 185px;
