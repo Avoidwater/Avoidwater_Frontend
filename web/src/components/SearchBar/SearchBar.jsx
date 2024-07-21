@@ -6,11 +6,9 @@ import CONFIG from "../../config/config.json";
 const SearchBar = ({ setData }) => {
   const [addressText, setAddressText] = useState("");
   const header = "df6ab16c358d9b2ad054e8777badfcd6";
-
   const handleGetLocationAndSubmit = async () => {
     try {
       const locationData = await axios.get(
-
         `https://dapi.kakao.com/v2/local/search/address.json?query=${addressText}`,
         {
           headers: {

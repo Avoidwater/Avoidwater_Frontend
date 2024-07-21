@@ -4,7 +4,11 @@ import banner from "../../assets/img/mainbanner.svg";
 import car from "../../assets/img/car.png";
 import arrow from "../../assets/img/arrow.png";
 import locIcon from "../../assets/img/locIcon.png";
+<<<<<<< Updated upstream
 import { Map, MapMarker, Circle } from "react-kakao-maps-sdk";
+=======
+import { Map, MapMarker, useMap } from "react-kakao-maps-sdk";
+>>>>>>> Stashed changes
 import * as M from "../../style/Main/Main";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -19,8 +23,11 @@ function Main() {
   });
 
   const [data, setData] = useState();
+<<<<<<< Updated upstream
   const [weatherData, setWeatherData] = useState();
 
+=======
+>>>>>>> Stashed changes
   const navigate = useNavigate();
 
   const handleBannerClick = () => {
@@ -32,6 +39,7 @@ function Main() {
     console.log("Location Data:", data);
   }, [data]);
 
+<<<<<<< Updated upstream
   useEffect(() => {
     console.log("Weather Data:", weatherData);
     if (weatherData) {
@@ -62,6 +70,33 @@ function Main() {
       fillColor: color,
       fillOpacity: 0.3,
     };
+=======
+  const CustomCircle = ({ position }) => {
+    const map = useMap();
+
+    useEffect(() => {
+      if (map && position) {
+        const circle = new kakao.maps.Circle({
+          center: new kakao.maps.LatLng(position.lat, position.lng),
+          radius: 50, // Customize the radius as needed
+          strokeWeight: 5,
+          strokeColor: '#75B8FA',
+          strokeOpacity: 1,
+          strokeStyle: 'dashed',
+          fillColor: '#CFE7FF',
+          fillOpacity: 0.7,
+        });
+
+        circle.setMap(map);
+
+        return () => {
+          circle.setMap(null); // Clean up the circle when component unmounts or position changes
+        };
+      }
+    }, [map, position]);
+
+    return null;
+>>>>>>> Stashed changes
   };
 
   return (
@@ -87,12 +122,24 @@ function Main() {
         onLoad={() => console.log("Map loaded")}
       >
         {data && (
+<<<<<<< Updated upstream
           <MapMarker
             position={{ lat: data.location.lat, lng: data.location.lon }}
             onClick={() => {
               console.log(data.location.name);
             }}
           />
+=======
+          <>
+            <MapMarker
+              position={{ lat: data.location.lat, lng: data.location.lon }}
+              onClick={() => {
+                console.log(data.location.name); // Handle marker click event
+              }}
+            />
+            <CustomCircle position={{ lat: data.location.lat, lng: data.location.lon }} />
+          </>
+>>>>>>> Stashed changes
         )}
         {weatherData && (
           <Circle
@@ -118,6 +165,7 @@ function Main() {
       <M.banner src={banner} onClick={handleBannerClick} />
       <M.guideButton>지역별 강수량</M.guideButton>
       <M.nearShelter>
+        <M.seeAll onClick={() => navigate("/nearshelter")}>전체 보기</M.seeAll>
         <M.shelterGuide>주변 대피소 위치 안내</M.shelterGuide>
         <M.line />
         <M.shelterDiv>
@@ -136,7 +184,9 @@ function Main() {
         <M.subcarCon>침수차 확인</M.subcarCon>
         <M.carIcon src={car}></M.carIcon>
         <M.discarGuide>침수차량 구별법 확인하러 가기</M.discarGuide>
-        <M.arrow src={arrow} onClick={() => navigate("/submergedcar")}></M.arrow>
+        <M.arrow
+          src={arrow}
+          onClick={() => navigate("/submergedcar")}></M.arrow>
       </M.subcarDiv>
     </>
   );
